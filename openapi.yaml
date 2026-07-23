@@ -3313,7 +3313,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/PromptErrorResponse'
-                    description: Payment required - User has not paid
+                    description: 'Retryable backpressure. Two distinct causes, disambiguated by the body''s `error.type`, NOT by parsing `error.message`: `PAYMENT_REQUIRED` / `FREE_TIER_UNAVAILABLE` / `FREE_TIER_EXHAUSTED` / `PARTNER_NODE_PAYMENT_REQUIRED` (a billing gate - retrying without paying never succeeds), or `QUEUE_LIMIT` (this workspace''s bounded job queue is full - retrying after some queued jobs complete will succeed).'
                 "500":
                     content:
                         application/json:
